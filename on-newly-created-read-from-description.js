@@ -15,6 +15,9 @@ exports.rule = entities.Issue.onChange({
   },
   action: (ctx) => {
     const issue = ctx.issue;
+    if (issue.description === null) {
+      return;
+    }
     const description_lines = issue.description.toString().split("\n");
     console.log(description_lines);
     
